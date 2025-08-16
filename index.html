@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>کافی نت عابدی | فروش لوازم جانبی موبایل</title>
+  <meta name="description" content="کافی نت عابدی | فروش آنلاین لوازم جانبی موبایل: قاب، گلس، پاوربانک، کابل و هندزفری.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue-900:#0b2e66;
+      --blue-700:#134d9a;
+      --blue-600:#1b63c6;
+      --blue-500:#2b7be9;
+      --blue-100:#eaf2ff;
+      --text-900:#0f172a;
+      --text-600:#475569;
+      --border:#e5e7eb;
+      --shadow:0 14px 40px rgba(15, 40, 90, .16);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Vazirmatn",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+      color:var(--text-900);
+      background: linear-gradient(120deg, var(--blue-900), var(--blue-600), var(--blue-500));
+      background-size:300% 300%;
+      animation: bgMove 14s ease infinite;
+    }
+    @keyframes bgMove{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    .container{width:min(1120px,94%);margin-inline:auto}
+
+    /* Header - Glass */
+    .header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(180%) blur(14px);
+      background:rgba(255,255,255,.7);
+      border-bottom:1px solid rgba(255,255,255,.4);
+      transition:all .25s ease;
+    }
+    .header.scrolled{background:rgba(255,255,255,.85); padding:6px 0}
+    .header__inner{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand__logo{
+      width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--blue-600),var(--blue-500));color:#fff;font-weight:800
+    }
+    .brand__title{margin:0;font-size:1.15rem}
+    .brand__subtitle{margin:0;color:var(--text-600);font-size:.85rem}
+    .nav{display:flex;gap:16px}
+    .nav a{color:var(--text-600);text-decoration:none;padding:8px 10px;border-radius:12px}
+    .nav a:hover{background:var(--blue-100);color:var(--blue-700)}
+    .cart-button{
+      position:relative;border:none;background:var(--blue-600);color:#fff;
+      border-radius:12px;padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:8px
+    }
+    .cart-button__count{
+      background:#fff;color:var(--blue-700);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;
+      padding:0 6px;font-weight:800;border:2px solid var(--blue-600)
+    }
+
+    /* Hero */
+    .hero{color:#fff;padding:48px 0 28px}
+    .hero__inner{display:grid;grid-template-columns:1fr;gap:16px}
+    .hero__text h2{margin:0 0 8px 0;font-size:2rem}
+    .hero__text p{margin:0 0 16px 0;opacity:.9}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:12px 18px;border-radius:14px;border:1px solid transparent;cursor:pointer;font-weight:800
+    }
+    .btn--primary{background:#fff;color:var(--blue-700)}
+    .btn--primary:hover{filter:brightness(.95)}
+    .btn-animate{position:relative;overflow:hidden}
+    .btn-animate::after{
+      content:"";position:absolute;inset:0;left:-120%;background:rgba(0,0,0,.1);transform:skewX(-20deg);
+      transition:left .45s ease
+    }
+    .btn-animate:hover::after{left:120%}
+
+    /* Products */
+    .section{
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:16px;margin:16px 0
+    }
+    .section h3{margin:4px 0 12px 0;color:var(--blue-900)}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(1,1fr)}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+    .card{
+      border:1px solid var(--border);border-radius:18px;overflow:hidden;background:#fff;
+      transition:transform .25s ease, box-shadow .25s ease
+    }
+    .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 18px 42px rgba(0,0,0,.12)}
+    .card__img{aspect-ratio:1.3/1;background:#f6f7fb;display:grid;place-items:center}
+    .card__img img{width:100%;height:100%;object-fit:cover}
+    .card__body{padding:12px;display:grid;gap:6px}
+    .card__title{margin:2px 0 0 0;font-size:1.02rem}
+    .card__desc{margin:0;color:var(--text-600);font-size:.9rem}
+    .card__row{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+    .price{font-weight:800;color:var(--blue-900)}
+    .add-btn{
+      border:1px solid var(--border);background:#fff;padding:10px 12px;border-radius:12px;cursor:pointer
+    }
+    .add-btn--primary{background:var(--blue-600);border-color:var(--blue-600);color:#fff}
+    .add-btn--primary:hover{background:var(--blue-700)}
+
+    /* Order + Cart summary */
+    .order__wrap{display:grid;gap:16px}
+    @media(min-width:860px){.order__wrap{grid-template-columns:1.2fr .8fr}}
+    .cartbox{border:1px solid var(--border);border-radius:14px;padding:12px;background:#fafafa}
+    .cartbox h4{margin:4px 0 10px 0}
+    .cart-items{display:grid;gap:10px;max-height:300px;overflow:auto}
+    .cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;background:#fff;border:1px solid var(--border);border-radius:12px;padding:8px}
+    .cart-item img{width:64px;height:64px;object-fit:cover;border-radius:10px}
+    .qty{display:flex;align-items:center;gap:8px}
+    .qty button{width:28px;height:28px;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer}
+    .order form{display:grid;gap:10px}
+    .order input, .order textarea{
+      width:100%;padding:12px;border:1px solid var(--border);border-radius:12px;outline:none
+    }
+    .order input:focus, .order textarea:focus{border-color:var(--blue-600);box-shadow:0 0 0 3px rgba(27,99,198,.15)}
+    .footer{padding:18px 0;background:#0d2660;color:#e9f0ff;text-align:center;margin:18px 0 0 0}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="siteHeader">
+    <div class="container header__inner">
+      <div class="brand">
+        <div class="brand__logo">KA</div>
+        <div>
+          <h1 class="brand__title">کافی نت عابدی</h1>
+          <p class="brand__subtitle">لوازم جانبی موبایل با لبخند تحویل</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#products">محصولات</a>
+        <a href="#order">سفارش</a>
+        <a href="#contact">تماس</a>
+      </nav>
+      <button class="cart-button" id="openCartBtn" type="button" title="سبد خرید">
+        🛒 <span class="cart-button__count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <h2>به دنیای لوازم جانبی باکیفیت خوش آمدید</h2>
+        <p>قیمت منصفانه، ارسال سریع، گارانتی لبخند</p>
+        <a class="btn btn--primary btn-animate" href="#products">شروع خرید</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="section container">
+    <h3>محصولات منتخب</h3>
+    <div id="productsGrid" class="grid" aria-live="polite"></div>
+  </section>
+
+  <!-- Order -->
+  <section id="order" class="section container order">
+    <h3>ثبت سفارش</h3>
+    <div class="order__wrap">
+      <div class="cartbox">
+        <h4>سبد خرید</h4>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="card__row" style="margin-top:10px">
+          <span>جمع کل:</span>
+          <strong id="cartTotal" class="price">۰ تومان</strong>
+        </div>
+      </div>
+      <div>
+        <form id="orderForm">
+          <label>نام و نام خانوادگی
+            <input type="text" id="custName" required placeholder="مثلا: کافی عابدی">
+          </label>
+          <label>شماره تماس
+            <input type="tel" id="custPhone" required placeholder="مثلا: 09xxxxxxxxx">
+          </label>
+          <label>آدرس کامل
+            <textarea id="custAddress" rows="4" required placeholder="شهر، خیابان، پلاک، واحد..."></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn-animate">ارسال سفارش به واتساپ</button>
+          <p style="color:#64748b;margin:8px 0 0 0;font-size:.9rem">با فشردن دکمه، پیش‌فاکتور به واتساپ فروشگاه ارسال می‌شود.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> کافی نت عابدی — همه حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script>
+    // تنظیمات عمومی
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const header = document.getElementById("siteHeader");
+    window.addEventListener("scroll", ()=> header.classList.toggle("scrolled", window.scrollY > 30));
+
+    // شماره واتساپ فروشگاه - حتما تغییر دهید
+    // فرمت بین‌المللی بدون 0 و بدون + (ایران: 98 + شماره بدون صفر)
+    const PHONE_NUMBER = "989120000000";
+
+    // محصولات نمونه
+    const PRODUCTS = [
+      { id:"case-silicone-blue", name:"قاب سیلیکونی آبی", price:149000, desc:"لمس نرم، محافظت عالی از لبه‌ها.", img:"https://via.placeholder.com/600x420/1b63c6/ffffff?text=%D9%82%D8%A7%D8%A8+%D8%A2%D8%A8%DB%8C" },
+      { id:"glass-9h", name:"گلس 9H فول‌چسب", price:75000, desc:"شفافیت بالا، ضدخط و حباب‌نشدن.", img:"https://via.placeholder.com/600x420/eaf2ff/0b2e66?text=%DA%AF%D9%84%D8%B3+9H" },
+      { id:"powerbank-20k", name:"پاوربانک ۲۰هزار PD", price:390000, desc:"شارژ سریع 20W دو درگاه.", img:"https://via.placeholder.com/600x420/134d9a/ffffff?text=Powerbank" },
+      { id:"cable-usb-c-1m", name:"کابل USB‑C یک‌متری", price:89000, desc:"تحمل ۳A، جنس بافته.", img:"https://via.placeholder.com/600x420/2b7be9/ffffff?text=USB-C+Cable" },
+      { id:"charger-33w", name:"آداپتور 33W GaN", price:290000, desc:"ابعاد کوچک، ایمن و سریع.", img:"https://via.placeholder.com/600x420/0b2e66/ffffff?text=33W+GaN" },
+      { id:"earbuds-bt", name:"هندزفری بلوتوثی ENC", price:490000, desc:"میکروفن نویزکنسلینگ، 24 ساعت.", img:"https://via.placeholder.com/600x420/1b63c6/ffffff?text=Earbuds" }
+    ];
+
+    // حالت سبد خرید (در حافظه محلی ذخیره می‌شود)
+    const state = {
+      cart: loadCart()
+    };
+
+    const productsGrid = document.getElementById("productsGrid");
+    const cartItemsEl = document.getElementById("cartItems");
+    const cartTotalEl = document.getElementById("cartTotal");
+    const cartCountEl = document.getElementById("cartCount");
+    const orderForm = document.getElementById("orderForm");
+
+    // رندر محصولات
+    function renderProducts(){
+      productsGrid.innerHTML = "";
+      for(const p of PRODUCTS){
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="card__img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+          <div class="card__body">
+            <h4 class="card__title">${p.name}</h4>
+            <p class="card__desc">${p.desc}</p>
+            <div class="card__row">
+              <span class="price">${p.price.toLocaleString()} تومان</span>
+              <div style="display:flex;gap:8px">
+                <button class="add-btn" data-add="${p.id}" title="افزودن سریع">+</button>
+                <button class="add-btn add-btn--primary" data-add="${p.id}">افزودن به سبد</button>
+              </div>
+            </div>
+          </div>
+        `;
+        productsGrid.appendChild(card);
+      }
+      productsGrid.querySelectorAll("[data-add]").forEach(btn=>{
+        btn.addEventListener("click", ()=> addToCart(btn.dataset.add));
+      });
+    }
+
+    // سبد خرید
+    function loadCart(){
+      try{
+        return JSON.parse(localStorage.getItem("kafinet-cart")||"{}");
+      }catch{ return {}; }
+    }
+    function saveCart(){
+      localStorage.setItem("kafinet-cart", JSON.stringify(state.cart));
+    }
+    function addToCart(id, qty=1){
+      state.cart[id] = (state.cart[id]||0) + qty;
+      saveCart();
+      renderCart();
+      pulseCart();
+    }
+    function removeFromCart(id){
+      delete state.cart[id];
+      saveCart(); renderCart();
+    }
+    function changeQty(id, delta){
+      const cur = state.cart[id]||0;
+      const next = Math.max(1, cur + delta);
+      state.cart[id] = next;
+      saveCart(); renderCart();
+    }
+
+    function renderCart(){
+      const entries = Object.entries(state.cart);
+      cartItemsEl.innerHTML = "";
+      if(entries.length===0){
+        cartItemsEl.innerHTML = `<p style="color:#64748b;margin:4px 0">سبد خرید خالی است.</p>`;
+      }else{
+        for(const [id, qty] of entries){
+          const p = PRODUCTS.find(x=>x.id===id);
+          if(!p) continue;
+          const div = document.createElement("div");
+          div.className = "cart-item";
+          div.innerHTML = `
+            <img src="${p.img}" alt="${p.name}">
+            <div>
+              <div style="display:flex;justify-content:space-between;gap:10px">
+                <strong>${p.name}</strong>
+                <button class="add-btn" data-remove="${p.id}" title="حذف">🗑️</button>
+              </div>
+              <div class="card__row" style="margin-top:6px">
+                <div class="qty">
+                  <button data-dec="${p.id}">−</button>
+                  <span>${qty}</span>
+                  <button data-inc="${p.id}">+</button>
+                </div>
+                <span class="price">${(p.price*qty).toLocaleString()} تومان</span>
+              </div>
+            </div>
+            <div></div>
+          `;
+          cartItemsEl.appendChild(div);
+        }
+      }
+      // جمع کل و تعداد
+      const total = entries.reduce((sum,[id,qty])=>{
+        const p = PRODUCTS.find(x=>x.id===id); return p ? sum + p.price*qty : sum;
+      },0);
+      const count = entries.reduce((n,[,q])=>n+q,0);
+      cartTotalEl.textContent = total.toLocaleString() + " تومان";
+      cartCountEl.textContent = count.toString();
+
+      // رویدادها
+      cartItemsEl.querySelectorAll("[data-remove]").forEach(b=> b.addEventListener("click", ()=> removeFromCart(b.dataset.remove)));
+      cartItemsEl.querySelectorAll("[data-inc]").forEach(b=> b.addEventListener("click", ()=> changeQty(b.dataset.inc, +1)));
+      cartItemsEl.querySelectorAll("[data-dec]").forEach(b=> b.addEventListener("click", ()=> changeQty(b.dataset.dec, -1)));
+    }
+
+    function pulseCart(){
+      cartCountEl.style.transform = "scale(1.15)";
+      cartCountEl.style.transition = "transform .15s ease";
+      setTimeout(()=> cartCountEl.style.transform = "scale(1)", 150);
+    }
+
+    // ارسال سفارش به واتساپ
+    orderForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const entries = Object.entries(state.cart);
+      if(entries.length===0){
+        alert("سبد خرید خالی است. لطفا ابتدا محصولی اضافه کنید.");
+        return;
+      }
+      const name = document.getElementById("custName").value.trim();
+      const phone = document.getElementById("custPhone").value.trim();
+      const addr = document.getElementById("custAddress").value.trim();
+
+      const lines = entries.map(([id,qty])=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        return `- ${p?.name} × ${qty} = ${(p.price*qty).toLocaleString()} تومان`;
+      });
+
+      const total = entries.reduce((sum,[id,qty])=>{
+        const p = PRODUCTS.find(x=>x.id===id); return p ? sum + p.price*qty : sum;
+      },0);
+
+      const msg = [
+        "سفارش جدید کافی نت عابدی:",
+        "--------------------------",
+        ...lines,
+        `جمع کل: ${total.toLocaleString()} تومان`,
+        "--------------------------",
+        `نام: ${name}`,
+        `تلفن: ${phone}`,
+        `آدرس: ${addr}`
+      ].join("\n");
+
+      const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    });
+
+    // شروع
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
